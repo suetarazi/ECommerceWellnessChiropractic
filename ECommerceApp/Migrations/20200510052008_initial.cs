@@ -37,6 +37,28 @@ namespace ECommerceApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ReceiptOrders",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
+                    Amount = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
+                    CartItemQuantity = table.Column<string>(nullable: true),
+                    ServiceList = table.Column<string>(nullable: true),
+                    ServicePriceList = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReceiptOrders", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CartItems",
                 columns: table => new
                 {
@@ -95,6 +117,9 @@ namespace ECommerceApp.Migrations
         {
             migrationBuilder.DropTable(
                 name: "CartItems");
+
+            migrationBuilder.DropTable(
+                name: "ReceiptOrders");
 
             migrationBuilder.DropTable(
                 name: "Cart");

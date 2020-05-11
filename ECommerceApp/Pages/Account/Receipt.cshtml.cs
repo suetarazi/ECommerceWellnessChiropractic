@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceApp.Data;
 using ECommerceApp.Models;
 using ECommerceApp.Models.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Exchange.WebServices.Data;
 
@@ -19,20 +22,23 @@ namespace ECommerceApp.Pages.Account
         private ICartItems _context;
         private IEmailSender _email;
         private IPayment _payment;
+        private IReceiptOrders _receiptOrder;
 
-        public ReceiptModel(ICartItems context, IEmailSender email, IPayment payment)
+        public ReceiptModel(ICartItems context, IEmailSender email, IPayment payment, IReceiptOrders receiptOrder)
         {
             _context = context;
             _email = email;
             _payment = payment;
+            _receiptOrder = receiptOrder;
         }
 
         public List<CartItems> CartItems { get; set; }
+        public ReceiptOrders ReceiptOrders { get; set; }
 
         [BindProperty]
         public PaymentInput PaymentInput { get; set; }
 
-        //get all cart items for specific user
+        //get all cart items for specific user, and user input
         public async Task<IActionResult> OnGet(PaymentInput input)
         {
             var user = User.Identity.Name;
@@ -41,9 +47,16 @@ namespace ECommerceApp.Pages.Account
             return Page();
         }
 
-
-        public async Task<IActionResult> OnPost(string ccNumber, string firstName, string lastName, string address, string city, string state, string amount)
+        //Get's user input and cart items from checkout page
+        //saves it to a model, then goes to the database after purchase
+        //validates transaction through Auth.net
+        //email send through Sendgrid if approved
+        public async Task<IActionResult> OnPost(string ccNumber, string firstName, string lastName, string address, string city, string state, string amount, string date)
         {
+
+            var user = User.Identity.Name;
+            CartItems = await _context.GetAllCartItems(user);
+
             PaymentInput.CreditCard = ccNumber;
             PaymentInput.FirstName = firstName;
             PaymentInput.LastName = lastName;
@@ -51,10 +64,41 @@ namespace ECommerceApp.Pages.Account
             PaymentInput.City = city;
             PaymentInput.State = state;
             PaymentInput.Amount = amount;
+            PaymentInput.Date = date;
 
-            var user = User.Identity.Name;
-            CartItems = await _context.GetAllCartItems(user);
-            //testing out whether payment logic works in here :) 
+            //storage for specific cart item propertes
+            List<string> quantityList = new List<string>();
+            List<string> servicesList = new List<string>();
+            List<string> priceList = new List<string>();
+
+            //add user's purchased services, quantity and price to list above
+            foreach (var item in CartItems)
+            {
+                quantityList.Add(item.Quantity.ToString());
+                servicesList.Add(item.Services.ServiceType);
+                priceList.Add(item.Services.Price.ToString());
+            }
+
+            //create new receipt order to store in database
+            var receiptOrder = new ReceiptOrders
+            {
+                FirstName = PaymentInput.FirstName,
+                LastName = PaymentInput.LastName,
+                Address = PaymentInput.ShippingAddress,
+                City = PaymentInput.City,
+                State = PaymentInput.State,
+                Amount = PaymentInput.Amount,
+                Date = PaymentInput.Date,
+                //convert lists to strings
+                CartItemQuantity = string.Join(",", quantityList),
+                ServiceList = string.Join(",", servicesList),
+                ServicePriceList = string.Join(",", priceList)
+            };
+
+            //add new receipt order to database
+            await _receiptOrder.CreateReceiptInfo(receiptOrder);
+
+            //pass in users input information for transaction
             var result = _payment.Run(PaymentInput);
 
             if (result != "failed to process")
@@ -91,8 +135,10 @@ namespace ECommerceApp.Pages.Account
                 sb.AppendLine($"<strong>Total after tax: ${String.Format("{0:0.00}", sum += sum / 6.50M)} USD </strong>");
 
                 await _email.SendEmailAsync($"{User.Identity.Name}", "Your Purchase from Wellness Chiropractic", sb.ToString());
+                
                 return Page();
             }
+
             else
             {
                 return Page();
