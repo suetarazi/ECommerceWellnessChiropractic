@@ -94,11 +94,24 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ### Cart Page
 ![Cart Page](https://i.imgur.com/XL8qGvR.png)
 
+### Payment Page
+![Payment Page](https://i.imgur.com/1QhpqRG.png)
+
+### Receipt Page
+![Receipt Page](https://i.imgur.com/PYNbBzU.png)
+
 ### Admin Page
 ![Admin Page](https://i.imgur.com/H5S603x.png)
 
 ### Edit Service in Admin Portal
-![Admin Edit Page](https://i.imgur.com/zSPIwMm.png)
+![Admin Edit Page](https://i.imgur.com/erEgKtK.png)
+
+### Admin Orders Page
+![Admin Orders](https://i.imgur.com/YHWaBBH.png)
+
+### Admin Order Details
+![Admin Order Details](https://i.imgur.com/lPM1X3X.png)
+
 
 ---
 ## Data Model
