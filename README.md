@@ -28,6 +28,9 @@ Microsoft Visual Studio Community 2017 (Version 15.5.7)
 - Razor Pages
 - Azure
 - Azure DevOps
+- Azure Blob Storage
+- Sendgrid
+- Auth.Net
 
 ---
 
@@ -57,21 +60,25 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ---
 
 ## Pages
-Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
+#### Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
 * **route/index** - Home page where the user can learn about the business and mobile services being offered. Also bios of the staff are available.
 * **route/account/register** - Page where a user can register. Information inputted are then saved to a database.
 * **route/account/login** - Page where a user can login if information given exists in the database.
 * **route/account/accessdenied** - Page where unauthorized user are directed to.
+* **route/account/checkout** - Page where a user can review the items they wish to purchase.
 * **route/account/receipt** - Page where users are redirected after checking out with services in cart.
 * **route/store/shop** - Page that shows all available services.
 * **route/store/cart** - Page that shows all items the user has added to cart.
 * **route/product/details/id** - Page that shows a specific service with details.
 * **route/product/delete/id** - Page to delete a specific item from user's cart.
 
-* Admin Routes
-  * **route/admin/dashboard** - Page where an Administrator can pick to manage orders or services.
+#### Admin Routes
+  * **route/admin/dashboard** - Page where administrators have access to, and have the option to manage services, or check existing orders.
   * **route/admin/manageservices** - Page where Administrator can create, update, or delete a service.
- 
+  * **route/admin/order** - Page where administrators can check all existing orders
+  * **route/admin/orderdetails** - Page where administrators can order details after picking a specific order
+
+
 ## Usage
 ***[Provide some images of your app with brief description as title]***
 
@@ -87,25 +94,29 @@ Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
 ### Cart Page
 ![Cart Page](https://i.imgur.com/XL8qGvR.png)
 
+### Payment Page
+![Payment Page](https://i.imgur.com/1QhpqRG.png)
+
+### Receipt Page
+![Receipt Page](https://i.imgur.com/PYNbBzU.png)
+
 ### Admin Page
 ![Admin Page](https://i.imgur.com/H5S603x.png)
 
 ### Edit Service in Admin Portal
-![Admin Edit Page](https://i.imgur.com/zSPIwMm.png)
+![Admin Edit Page with Blob Storage for Images](https://i.imgur.com/erEgKtK.png)
 
----
-## Data Flow (Frontend, Backend, REST API)
-***[Add a clean and clear explanation of what the data flow is. Walk me through it.]***
-![Data Flow Diagram]()
+### Admin Orders Page
+![Admin Orders](https://i.imgur.com/YHWaBBH.png)
+
+### Admin Order Details
+![Admin Order Details](https://i.imgur.com/lPM1X3X.png)
+
 
 ---
 ## Data Model
 ERD from CodeFellows 401 .NET Class Repo:
 ![ERD](https://i.imgur.com/RhRWayc.png)
-
-### Overall Project Schema
-***[Add a description of your DB schema. Explain the relationships to me.]***
-![Database Schema]()
 
 ---
 ## Model Properties and Requirements
@@ -147,6 +158,22 @@ ERD from CodeFellows 401 .NET Class Repo:
 | UserID | string | YES |
 | CartItems | List< CartItems > | YES |
 
+### ReceiptOrder
+
+| Parameter | Type | Required |
+| --- | --- | --- |
+| ID  | int | YES |
+| FirstName | string | YES |
+| LastName | string | YES |
+| Address | string | YES |
+| City | string | YES |
+| State | string | YES |
+| Amount | string | YES |
+| Date | string | YES |
+| CartItemQuantity | string | YES |
+| ServiceList | string | YES |
+| ServicePriceList | string | YES |
+
 ---
 
 ### Claims Being Captured
@@ -158,12 +185,23 @@ ERD from CodeFellows 401 .NET Class Repo:
 | Email | string | YES |
 
 ## Change Log
+* **SPRINT 3 COMPLETE**
+* 1.20: *Admin can pick a specific user in order page, and it redirects to order detail page with receipt info* - 09 May 2020
+* 1.19: *Added order page for admins from specific user* - 08 May 2020
+* 1.18: *When an admin logs in, it redirects them to the admin page* - 07 May 2020
+* 1.17: *Admin able to create and update images with Azure blob storage* - 06 May 2020
+* 1.16: *User's input with total amount now passes properly to Auth.Net* - 06 May 2020
+* 1.15: *Hard coded transaction working with Auth.Net* - 05 May 2020
+* **SPRINT 2 COMPLETE**
+* 1.14: *Email is sent after user checks out from receipt page.* - 03 May 2020
 * 1.13: *Receipt page added, and some styling on details page & receipt page* - 30 April 2020
 * 1.12: *Created razor pages for Administrator roles, and CRUD functionality* - 28 April 2020
 * 1.11: *User can now update quantity of items, or delete an item from their cart* - 27 April 2020
 * 1.10: *Email sends out to user after registering a new account* - 26 April 2020
+* 1.10: *Email sends out to user after registering a new account* - 26 April 2020
 * 1.9: *Cart razor page created, and renders items that were added to cart for a specific user* - 26 April 2020
 * 1.8: *Leads the user to details page after clicking a specific product* - 25 April 2020
+* **SPRINT 1 COMPLETE**
 * 1.7: *Page for all products to show up; still need functionality to click a specific product to redirect to details page.* - 25 April 2020
 * 1.6: *Page for specific product with details added, and able to retrieve data from database* - 24 April 2020
 * 1.5: *Both databases (user & store) deployed and connected to Web App* - 22 April 2020
