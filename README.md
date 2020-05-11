@@ -60,7 +60,7 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ---
 
 ## Pages
-Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
+#### Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
 * **route/index** - Home page where the user can learn about the business and mobile services being offered. Also bios of the staff are available.
 * **route/account/register** - Page where a user can register. Information inputted are then saved to a database.
 * **route/account/login** - Page where a user can login if information given exists in the database.
@@ -71,8 +71,11 @@ Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
 * **route/store/cart** - Page that shows all items the user has added to cart.
 * **route/product/details/id** - Page that shows a specific service with details.
 * **route/product/delete/id** - Page to delete a specific item from user's cart.
+* **route/admin/dashboard** - Page where administrators have access to, and have the option to manage services, or check existing orders.
+* **route/admin/order** - Page where administrators can check all existing orders
+* **route/admin/orderdetails** - Page where administrators can order details after picking a specific order
 
-* Admin Routes
+#### Admin Routes
   * **route/admin/dashboard** - Page where an Administrator can pick to manage orders or services.
   * **route/admin/manageservices** - Page where Administrator can create, update, or delete a service.
  
@@ -98,18 +101,9 @@ Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
 ![Admin Edit Page](https://i.imgur.com/zSPIwMm.png)
 
 ---
-## Data Flow (Frontend, Backend, REST API)
-***[Add a clean and clear explanation of what the data flow is. Walk me through it.]***
-![Data Flow Diagram]()
-
----
 ## Data Model
 ERD from CodeFellows 401 .NET Class Repo:
 ![ERD](https://i.imgur.com/RhRWayc.png)
-
-### Overall Project Schema
-***[Add a description of your DB schema. Explain the relationships to me.]***
-![Database Schema]()
 
 ---
 ## Model Properties and Requirements
@@ -151,6 +145,23 @@ ERD from CodeFellows 401 .NET Class Repo:
 | UserID | string | YES |
 | CartItems | List< CartItems > | YES |
 
+### ReceiptOrder
+
+| Parameter | Type | Required |
+| --- | --- | --- |
+| ID  | int | YES |
+| UserID | string | YES |
+| FirstName | string | YES |
+| LastName | string | YES |
+| Address | string | YES |
+| City | string | YES |
+| State | string | YES |
+| Amount | string | YES |
+| Date | string | YES |
+| CartItemQuantity | string | YES |
+| ServiceList | string | YES |
+| ServicePriceList | string | YES |
+
 ---
 
 ### Claims Being Captured
@@ -162,6 +173,10 @@ ERD from CodeFellows 401 .NET Class Repo:
 | Email | string | YES |
 
 ## Change Log
+* **SPRINT 3 COMPLETE**
+* 1.20: *Admin can pick a specific user in order page, and it redirects to order detail page with receipt info* - 09 May 2020
+* 1.19: *Added order page for admins from specific user* - 08 May 2020
+* 1.18: *When an admin logs in, it redirects them to the admin page* - 07 May 2020
 * 1.17: *Admin able to create and update images with Azure blob storage* - 06 May 2020
 * 1.16: *User's input with total amount now passes properly to Auth.Net* - 06 May 2020
 * 1.15: *Hard coded transaction working with Auth.Net* - 05 May 2020
