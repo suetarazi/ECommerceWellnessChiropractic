@@ -71,14 +71,14 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 * **route/store/cart** - Page that shows all items the user has added to cart.
 * **route/product/details/id** - Page that shows a specific service with details.
 * **route/product/delete/id** - Page to delete a specific item from user's cart.
-* **route/admin/dashboard** - Page where administrators have access to, and have the option to manage services, or check existing orders.
-* **route/admin/order** - Page where administrators can check all existing orders
-* **route/admin/orderdetails** - Page where administrators can order details after picking a specific order
 
 #### Admin Routes
-  * **route/admin/dashboard** - Page where an Administrator can pick to manage orders or services.
+  * **route/admin/dashboard** - Page where administrators have access to, and have the option to manage services, or check existing orders.
   * **route/admin/manageservices** - Page where Administrator can create, update, or delete a service.
- 
+  * **route/admin/order** - Page where administrators can check all existing orders
+  * **route/admin/orderdetails** - Page where administrators can order details after picking a specific order
+
+
 ## Usage
 ***[Provide some images of your app with brief description as title]***
 
@@ -104,7 +104,7 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ![Admin Page](https://i.imgur.com/H5S603x.png)
 
 ### Edit Service in Admin Portal
-![Admin Edit Page](https://i.imgur.com/erEgKtK.png)
+![Admin Edit Page with Blob Storage for Images](https://i.imgur.com/erEgKtK.png)
 
 ### Admin Orders Page
 ![Admin Orders](https://i.imgur.com/YHWaBBH.png)
