@@ -116,7 +116,7 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ---
 ## Data Model
 ERD of StoreDbContext
-![ERD](https://drive.google.com/file/d/1OU6Y36-5YeVii3-QJhl1BuhIqpXc8sDE/view?usp=sharing)
+[ERD](https://drive.google.com/file/d/1OU6Y36-5YeVii3-QJhl1BuhIqpXc8sDE/view?usp=sharing)
 
 ---
 ## Model Properties and Requirements
