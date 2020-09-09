@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/healthathomeapi/databases/ChiroIdentityDb",
+      "type": "mssql.azure",
+      "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroIdentityDb;",
+      "secretStore": "AzureAppSettings"
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/chiropractorwellness",
+      "type": "storage.azure",
+      "connectionId": "chiropractorwellness",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/healthathomeapi/databases/ChiroWellness",
+      "type": "mssql.azure",
+      "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroWellness;",
+      "secretStore": "AzureAppSettings"
+    },
+    "secrets1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/ECommerceAppvault",
+      "type": "secrets.keyVault",
+      "connectionId": "Vault2",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

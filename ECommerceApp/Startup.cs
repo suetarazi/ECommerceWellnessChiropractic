@@ -16,6 +16,10 @@ using ECommerceApp.Models.Interface;
 using ECommerceApp.Models.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Azure;
+using Azure.Storage.Queues;
+using Azure.Storage.Blobs;
+using Azure.Core.Extensions;
 
 namespace ECommerceApp
 {
@@ -41,20 +45,20 @@ namespace ECommerceApp
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 //local
-               options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault"));
+               //options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault"));
 
                 //deployed
-                //options.UseSqlServer(Configuration.GetConnectionString("ProductionIdentityConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionIdentityConnection"));
             });
 
             //registering store database
             services.AddDbContext<StoreDbContext>(options =>
             {
                 //local
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
                 //deployed
-                //options.UseSqlServer(Configuration.GetConnectionString("ProductionStoreConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionStoreConnection"));
             });
 
             //mapping; dependency injection
@@ -74,6 +78,11 @@ namespace ECommerceApp
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminOnly", policy => policy.RequireRole(ApplicationRoles.Admin));
+            });
+            services.AddAzureClients(builder =>
+            {
+                builder.AddBlobServiceClient(Configuration["ConnectionStrings:chiropractorwellness:blob"], preferMsi: true);
+                builder.AddQueueServiceClient(Configuration["ConnectionStrings:chiropractorwellness:queue"], preferMsi: true);
             });
 
         }
@@ -105,6 +114,31 @@ namespace ECommerceApp
                 endpoints.MapRazorPages();
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+    }
+    internal static class StartupExtensions
+    {
+        public static IAzureClientBuilder<BlobServiceClient, BlobClientOptions> AddBlobServiceClient(this AzureClientFactoryBuilder builder, string serviceUriOrConnectionString, bool preferMsi)
+        {
+            if (preferMsi && Uri.TryCreate(serviceUriOrConnectionString, UriKind.Absolute, out Uri serviceUri))
+            {
+                return builder.AddBlobServiceClient(serviceUri);
+            }
+            else
+            {
+                return builder.AddBlobServiceClient(serviceUriOrConnectionString);
+            }
+        }
+        public static IAzureClientBuilder<QueueServiceClient, QueueClientOptions> AddQueueServiceClient(this AzureClientFactoryBuilder builder, string serviceUriOrConnectionString, bool preferMsi)
+        {
+            if (preferMsi && Uri.TryCreate(serviceUriOrConnectionString, UriKind.Absolute, out Uri serviceUri))
+            {
+                return builder.AddQueueServiceClient(serviceUri);
+            }
+            else
+            {
+                return builder.AddQueueServiceClient(serviceUriOrConnectionString);
+            }
         }
     }
 }
