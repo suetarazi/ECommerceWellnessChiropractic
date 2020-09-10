@@ -4,17 +4,16 @@
       "type": "mssql",
       "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroIdentityDb;"
     },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "chiropractorwellness"
-    },
     "mssql2": {
       "type": "mssql",
       "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroWellness;"
     },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "chiropractorwellness"
+    },
     "secrets1": {
-      "type": "secrets",
-      "connectionId": "Vault2"
+      "type": "secrets"
     }
   }
 }
