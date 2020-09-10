@@ -4,19 +4,19 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/healthathomeapi/databases/ChiroIdentityDb",
       "type": "mssql.azure",
       "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroIdentityDb;",
-      "secretStore": "LocalSecretsFile"
+      "secretStore": "AzureAppSettings"
     },
     "mssql2": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/healthathomeapi/databases/ChiroWellness",
       "type": "mssql.azure",
       "connectionId": "Server=tcp:healthathomeapi.database.windows.net,1433;InitialCatalog=ChiroWellness;",
-      "secretStore": "LocalSecretsFile"
+      "secretStore": "AzureAppSettings"
     },
     "storage1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/chiropractorwellness",
       "type": "storage.azure",
       "connectionId": "chiropractorwellness",
-      "secretStore": "LocalSecretsFile"
+      "secretStore": "AzureAppSettings"
     }
   }
 }
