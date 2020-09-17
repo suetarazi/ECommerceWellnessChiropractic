@@ -1,9 +1,9 @@
-# Project 401 E-Commerce Site
+# E-Commerce Web and Mobile App
 
 ---
-### We are deployed on Azure!
+### This app is deployed on Azure!
 
-* Deployed site - https://ecommerceappjoesue.azurewebsites.net/
+* Deployed site - https://ecommercewellnesschiropracticapp.azurewebsites.net/
 
 * Database server names
   * User database - userdbcontext.database.windows.net
