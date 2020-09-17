@@ -79,11 +79,11 @@ namespace ECommerceApp
             {
                 options.AddPolicy("AdminOnly", policy => policy.RequireRole(ApplicationRoles.Admin));
             });
-            services.AddAzureClients(builder =>
-            {
-                builder.AddBlobServiceClient(Configuration["ConnectionStrings:chiropractorwellness:blob"], preferMsi: true);
-                builder.AddQueueServiceClient(Configuration["ConnectionStrings:chiropractorwellness:queue"], preferMsi: true);
-            });
+            //services.AddAzureClients(builder =>
+            //{
+            //    builder.AddBlobServiceClient(Configuration["ConnectionStrings:chiropractorwellness:blob"], preferMsi: true);
+            //    builder.AddQueueServiceClient(Configuration["ConnectionStrings:chiropractorwellness:queue"], preferMsi: true);
+            //});
 
         }
 
