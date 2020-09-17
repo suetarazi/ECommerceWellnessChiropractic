@@ -1,0 +1,51 @@
+﻿@page "{id:int?}"
+@model ECommerceApp.Pages.Product.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/Styles/StyleSheet.css">
+</head>
+
+<body style="margin-top:110px">
+    <div class="container" id="product-section">
+        <h2 style="text-align:center;">Service Details</h2>
+        <div class="row" style="margin-top:20px; margin-top: 20px; margin-left: 42px;">
+            <div class="col-md-6">
+                <div class="card text-center" style="width: 30rem;">
+                    <img class="card-img-top" src=@Model.inventory.Image alt="Service-Image" height="300" width="200" />
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.inventory.ServiceType</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Description</h5>
+                        <p class="card-text">@Model.inventory.Description</p>
+                        <p class="card-text">Duration: @Model.inventory.Duration</p>
+                        <p class="card-text">Price: $@Model.inventory.Price</p>
+                        <form asp-action="Create">
+                            <div class="box-body">
+                                @if (User.Identity.Name == null)
+                                {
+                                    <button class="btn btn-primary" asp-page="../Account/Register">Add to Cart</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" asp-route-serviceId="@Model.inventory.ID" class="btn btn-primary">
+                                        Add to Cart
+                                    </button>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                    </d
+                    iv>
+                </div>
+        </div>
+    </div><!-- end container -->
+</body>
+
