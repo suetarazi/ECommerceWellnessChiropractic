@@ -48,7 +48,7 @@ namespace ECommerceApp
                //options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault"));
 
                 //deployed
-                options.UseSqlServer(Configuration.GetConnectionString("ProductionIdentityConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault"));
             });
 
             //registering store database
@@ -58,7 +58,7 @@ namespace ECommerceApp
                 //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
                 //deployed
-                options.UseSqlServer(Configuration.GetConnectionString("ProductionStoreConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             //mapping; dependency injection

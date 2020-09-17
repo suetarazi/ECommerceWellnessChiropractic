@@ -17,6 +17,9 @@
       "type": "storage.azure",
       "connectionId": "chiropractorwellness",
       "secretStore": "LocalSecretsFile"
+    },
+    "secrets1": {
+      "type": "secrets.user"
     }
   }
 }

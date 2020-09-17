@@ -11,6 +11,9 @@
     "storage1": {
       "type": "storage",
       "connectionId": "chiropractorwellness"
+    },
+    "secrets1": {
+      "type": "secrets"
     }
   }
 }
