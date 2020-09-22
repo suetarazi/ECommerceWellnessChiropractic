@@ -4,7 +4,9 @@
 ### This app is deployed on Azure!
 
 * Deployed site - [https://ecommercewellnesschiropracticapp.azurewebsites.net/
-](https://ecommercewellnesschiropracticapp.azurewebsites.net/){:target="_blank"}
+](https://ecommercewellnesschiropracticapp.azurewebsites.net/)
+
+<a href="https://ecommercewellnesschiropracticapp.azurewebsites.net/" target="_blank">https://ecommercewellnesschiropracticapp.azurewebsites.net/</a>
 
 * Database server names
   * User database - userdbcontext.database.windows.net
