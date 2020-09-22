@@ -3,7 +3,8 @@
 ---
 ### This app is deployed on Azure!
 
-* Deployed site - https://ecommercewellnesschiropracticapp.azurewebsites.net/{target="_blank"}
+* Deployed site - [https://ecommercewellnesschiropracticapp.azurewebsites.net/
+](https://ecommercewellnesschiropracticapp.azurewebsites.net/)
 
 * Database server names
   * User database - userdbcontext.database.windows.net
