@@ -19,7 +19,7 @@ Bootstrap. The backend was written in C# using ASP.NET Core 2, Entity Framework 
 ---
 
 ## Tools Used
-Microsoft Visual Studio Community 2017 (Version 15.5.7)
+Microsoft Visual Studio Community 2019 (Version 15.5.7)
 
 - C#
 - ASP.Net Core
@@ -40,7 +40,7 @@ Microsoft Visual Studio Community 2017 (Version 15.5.7)
 Clone this repository to your local machine.
 
 ```
-$ git clone https://401ECommerceSueJoe@dev.azure.com/401ECommerceSueJoe/401ECommerceSite/_git/401ECommerceSite
+$ git clone https://github.com/suetarazi/ECommerceWellnessChiropractic
 ```
 Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 2017 (or greater) to build the web application. The solution file is located in the 401ECommSite subdirectory at the root of the repository.
 ```
@@ -61,7 +61,7 @@ Unit testing is included in the XunitTestECommApp project using the xUnit test f
 ---
 
 ## Pages
-#### Deployed App - https://ecommerceappsuejoe.azurewebsites.net/
+#### Deployed App - https://ecommercewellnesschiropracticapp.azurewebsites.net/
 * **route/index** - Home page where the user can learn about the business and mobile services being offered. Also bios of the staff are available.
 * **route/account/register** - Page where a user can register. Information inputted are then saved to a database.
 * **route/account/login** - Page where a user can login if information given exists in the database.
