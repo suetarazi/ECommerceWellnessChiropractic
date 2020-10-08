@@ -219,3 +219,17 @@ C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\obj\Debug\netco
 C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\obj\Debug\netcoreapp3.1\ECommAppTest.dll
 C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\obj\Debug\netcoreapp3.1\ECommAppTest.pdb
 C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\obj\Debug\netcoreapp3.1\ECommAppTest.genruntimeconfig.cache
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.ECommerceWellnessChiropracticApp - Web Deploy.json
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\ECommerceWellnessChiropracticApp - Web Deploy\profile.arm.json
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Settings.job
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Security.KeyVault.Secrets.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Storage.Files.Shares.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Azure.Storage.Queues.dll
+C:\Users\Sue Machtley\source\repos\401ECommerceSite\ECommAppTest\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Azure.dll
